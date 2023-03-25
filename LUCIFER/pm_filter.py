@@ -155,8 +155,12 @@ async def next_page(bot, query):
         btn.append(
             [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
         )
+        btn.append(
+            [InlineKeyboardButton("♻️ SF Lɪɴᴋs ♻️", url="https://t.me/sflinks")])
     elif off_set is None:
         btn.append([InlineKeyboardButton("ᴘᴀɢᴇs", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append(
+            [InlineKeyboardButton("♻️ SF Lɪɴᴋs ♻️", url="https://t.me/sflinks")])
     else:
         btn.append(
             [
@@ -165,6 +169,8 @@ async def next_page(bot, query):
                 InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
+        btn.append(
+            [InlineKeyboardButton("♻️ SF Lɪɴᴋs ♻️", url="https://t.me/sflinks")])
     btn.insert(0, [
         InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ ⚡", url=HOW_DWLD_LINK)
     ])
@@ -534,15 +540,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "start":
         buttons = [[
                     InlineKeyboardButton('➕ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('🍁 Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('🌿 Sᴜᴘᴘᴏʀᴛ', callback_data="kd_cnl")
-                ],[
-                    InlineKeyboardButton('❗ Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('🕵️ Aʙᴏᴜᴛ', callback_data='about'),
-                ],[
-                    InlineKeyboardButton('🔒 Cʟᴏsᴇ Mᴇɴᴜ', callback_data='close_data')
-                  ]]
+                  ],[
+            InlineKeyboardButton('🎭 Mʏ Gʀᴏᴜᴘ 🎭', url=f'http://t.me/sf_request'),
+            InlineKeyboardButton('☘️ Mʏ Cʜᴀɴɴᴇʟ ☘️', url='https://t.me/SFLinks')
+           ],[
+            InlineKeyboardButton('☀️ Jᴏɪɴ Tʜɪs Cʜᴀɴɴᴇʟ ᴛᴏ Usᴇ Mᴇ ☀️', url='https://t.me/SFLinks')
+            ],[
+            InlineKeyboardButton('🔍 Sᴇᴀʀᴄʜ Hᴇʀᴇ 🔍', switch_inline_query_current_chat='')]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -742,14 +746,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
     elif query.data == "kd_cnl":
             cnlbtn = [[
-                      InlineKeyboardButton('Lᴜᴄɪғᴇʀ Bᴏᴛ Lᴏɢs', url="https://t.me/LuciferBot_logs")
-                     ], [
-                      InlineKeyboardButton('Gʀᴏᴜᴘ', url='t.me/mh_request'),
-                      InlineKeyboardButton('Cʜᴀɴɴᴇʟ', url='t.me/movieshouse8')
-                     ], [
-                      InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='t.me/kdbotz_support'),
-                      InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='t.me/kd_botz')
-                     ], [
+                      InlineKeyboardButton('Gʀᴏᴜᴘ', url='t.me/sf_request'),
+                      InlineKeyboardButton('Cʜᴀɴɴᴇʟ', url='t.me/sflinks')
+                     ],[
                       InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start")
                      ]]
             reply_markup = InlineKeyboardMarkup(cnlbtn)
